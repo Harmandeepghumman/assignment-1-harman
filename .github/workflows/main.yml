@@ -32,7 +32,7 @@ jobs:
         ECR_REPOSITORY: clo835harman
         IMAGE_TAG_APP: app.v0.1
       run: |
-      
+        cd app/
         # Docker build
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_APP} -f Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_APP} 
