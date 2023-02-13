@@ -110,3 +110,10 @@ resource "aws_eip" "static_eip" {
     }
   )
 }
+resource "aws_ecr_repository" "clo835harman" {
+  name = "clo835harman"
+}
+
+output "repository_url" {
+  value = aws_ecr_repository.clo835harman.repository_url
+}
