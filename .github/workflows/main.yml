@@ -45,6 +45,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: clo835harman
+        IMAGE_TAG_docker: docker
       run: |
         docker-compose up -d        
         
