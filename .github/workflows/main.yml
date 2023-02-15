@@ -47,5 +47,5 @@ jobs:
         ECR_REPOSITORY: clo835harman
         IMAGE_TAG_docker: docker
       run: |
-        docker-compose up -d        
+        docker-compose up -d --build   
         
