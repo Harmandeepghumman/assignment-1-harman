@@ -41,11 +41,11 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_DB} -f Dockerfile_mysql .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_DB} 
         
-    - name: Deploy containers
+    - name: Deploy Docker Compose
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: clo835harman
         IMAGE_TAG_docker: docker
       run: | 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_docker} -f docker-compose.yml .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_docker}         
+
+        docker-compose up -d
