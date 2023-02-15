@@ -40,3 +40,11 @@ jobs:
         cd ../db
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_DB} -f Dockerfile_mysql .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${IMAGE_TAG_DB} 
+        
+    - name: Deploy containers
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: clo835harman
+      run: |
+        docker-compose up -d        
+        
